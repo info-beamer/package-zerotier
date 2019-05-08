@@ -1,0 +1,14 @@
+{
+    "name": "Zerotier",
+    "permissions": {
+        "run-as-root": "Needs to setup network interfaces",
+        "unboxed": "need direct device access"
+    },
+    "options": [{
+        "title": "Network",
+        "ui_width": 6,
+        "name": "network",
+        "type": "string",
+        "default": ""
+    }]
+}

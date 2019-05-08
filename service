@@ -1,0 +1,51 @@
+#!/usr/bin/python
+import subprocess, os, traceback, time, ctypes, signal
+from hosted import config
+config.restart_on_update()
+
+libc = ctypes.CDLL('libc.so.6')
+
+os.chmod("./zerotier.bin", 0o755)
+os.system("sysctl -w net.ipv4.conf.all.rp_filter=2")
+
+def start_daemon():
+    def pre_exec():
+        PR_SET_PDEATHSIG = 1
+        libc.prctl(PR_SET_PDEATHSIG, signal.SIGKILL, 0, 0, 0)
+    return subprocess.Popen([
+        './zerotier.bin', os.environ['SCRATCH']
+    ])
+
+def call(*args):
+    subprocess.check_call([
+        './zerotier.bin', '-q', '-D%s' % os.environ['SCRATCH']
+    ] + list(args))
+
+def main():
+    daemon = start_daemon()
+
+    time.sleep(10)
+
+    joined = False
+    while 1:
+        status = daemon.poll()
+
+        if status is not None:
+            break
+
+        if not joined:
+            try:
+                call('join', config.network)
+                call('set', config.network, 'allowDefault=1')
+                joined = True
+            except:
+                print("cannot join")
+                time.sleep(5)
+                traceback.print_exc()
+
+        # call('info')
+
+        time.sleep(1)
+
+if __name__ == "__main__":
+    main()

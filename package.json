@@ -1,0 +1,7 @@
+{
+    "name": "Zerotier network",
+    "author": "Florian Wesch <fw@info-beamer.com>",
+    "desc": "Runs a zerotier overlay network on your device",
+    "lifecycle": "alpha",
+    "version": "1.2.12"
+}
