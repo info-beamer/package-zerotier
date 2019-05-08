@@ -1,5 +1,7 @@
 # ZeroTier proof-of-concept
 
+[![Import](https://cdn.infobeamer.com/s/img/import.png)](https://info-beamer.com/use?url=https://github.com/info-beamer/package-zerotier)
+
 This package adds [ZeroTier](http://zerotier.com/) support to any
 of your existing setups. Just add this package
 as a child package, configure a network and
