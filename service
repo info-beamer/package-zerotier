@@ -33,7 +33,7 @@ def main():
         if status is not None:
             break
 
-        if not joined:
+        if not joined and config.network:
             try:
                 call('join', config.network)
                 call('set', config.network, 'allowDefault=1')
