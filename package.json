@@ -3,5 +3,13 @@
     "author": "Florian Wesch <fw@info-beamer.com>",
     "desc": "Runs a zerotier overlay network on your device",
     "lifecycle": "alpha",
-    "version": "1.2.12"
+    "version": "1.2.12",
+    "offline": {
+        "support": "no",
+        "info": "Needs networking"
+    },
+    "nesting": {
+        "parents": "any",
+        "childs": []
+    }
 }
