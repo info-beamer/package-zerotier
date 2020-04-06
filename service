@@ -9,12 +9,12 @@ os.chmod("./zerotier.bin", 0o755)
 os.system("sysctl -w net.ipv4.conf.all.rp_filter=2")
 
 def start_daemon():
-    def pre_exec():
+    def preexec():
         PR_SET_PDEATHSIG = 1
         libc.prctl(PR_SET_PDEATHSIG, signal.SIGKILL, 0, 0, 0)
     return subprocess.Popen([
         './zerotier.bin', os.environ['SCRATCH']
-    ])
+    ], preexec_fn=preexec)
 
 def call(*args):
     subprocess.check_call([
