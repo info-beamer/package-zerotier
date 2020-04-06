@@ -2,9 +2,7 @@
 
 [![Import](https://cdn.infobeamer.com/s/img/import.png)](https://info-beamer.com/use?url=https://github.com/info-beamer/package-zerotier)
 
-**You'll need to install the current `testing` release for this to work**
-
-This package adds [ZeroTier](http://zerotier.com/) support to any
+This package adds [ZeroTier](https://zerotier.com/) support to any
 of your existing setups. Just add this package
 as a child package, configure a network and
 then go to your ZeroTier management dashboard
