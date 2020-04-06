@@ -4,6 +4,7 @@
     "desc": "Runs a zerotier overlay network on your device",
     "lifecycle": "alpha",
     "version": "1.2.12",
+    "platforms": ["pi/v6", "pi/v7", "pi/v8"],
     "offline": {
         "support": "no",
         "info": "Needs networking"
